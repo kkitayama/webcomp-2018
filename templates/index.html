@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com -->
+<!-- Last Published: Tue Jul 24 2018 11:42:21 GMT+0000 (UTC) -->
+<html data-wf-domain="kotaros-first-project-bdb587.webflow.io" data-wf-page="5b56a5f21aca339c7457f11f" data-wf-site="5b56a5f21aca332b4257f11c" data-wf-status="1">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Kotaro&#x27;s First Project</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Webflow" name="generator"/>
+    <link href="https://uploads-ssl.webflow.com/5b56a5f21aca332b4257f11c/css/kotaros-first-project-bdb587.webflow.f59c15dde.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({  google: {    families: ["Roboto Condensed:regular,700"]  }});</script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+    <link href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon"/>
+  </head>
+  <body class="body">
+    <div class="container w-container">
+      <h1 class="logo">Image Translator</h1>
+      <p class="subtitle"></p>
+      <div class="join-wrapper w-clearfix">
+        <div class="beta-line"></div>
+        <p class="join">PLease submit your image</p>
+        <div class="beta-line"></div>
+      </div>
+
+      <div class="sign-up-form w-form">
+        <form method="post" action="/send" enctype="multipart/form-data">
+          <div class="w-row">
+            <div class="w-col w-col-6">
+              <input type="file" id="img_file" name="img_file" class="col-sm-4" style="display:none"/>
+              <input type="text" value="Select image" data-wait="Please wait..." class="button w-button" onClick="$('#img_file').click()"/>
+            </div>
+            <div class="w-col w-col-6">
+              <input type="submit" value="Submit" data-wait="Please wait..." class="button w-button"/>
+            </div>
+          </div>
+          {%if error_message %}
+          <h3><br>{{error_message}}</h3>
+          {% endif %}
+        </form>
+        <div class="success-message w-form-done">
+          <p>Thanks! You have been added to our beta list. </p>
+          <p class="spread-word">Help spread the word!</p>
+          <div class="social-widget-wrapper w-clearfix">
+            <div class="social-widget w-widget w-widget-twitter">
+              <iframe src="//platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fwebflow.com&amp;counturl=webflow.com&amp;text=Check%20out%20this%20site&amp;count=horizontal&amp;size=m&amp;dnt=true" scrolling="no" frameborder="0" allowtransparency="true" style="border: none; overflow: hidden; width: 62px; height: 21px;"></iframe>
+              <div class="w-widget-twitter-count-shim">
+                <div class="w-widget-twitter-count-inner">...</div>
+              </div>
+            </div>
+            <div class="social-widget w-widget w-widget-facebook">
+              <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fwebflow&amp;layout=button_count&amp;locale=en_US&amp;action=like&amp;show_faces=false&amp;share=false" scrolling="no" frameborder="0" allowtransparency="true" style="border: none; overflow: hidden; width: 90px; height: 20px;"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="error-message w-form-fail">
+          <p>Oops! Something went wrong while submitting the form. :(</p>
+        </div>
+      </div>
+    </div>
+    <div class="container w-container">
+      
+      {% if img_url %}
+      <img src="{{ img_url }}"> 
+      {% endif %}
+
+      {% if source_text %}
+      <h2>
+        <br/>ORIGINAL TEXT
+      </h2>
+      <div class="w-form">
+        <form method="post" action="/send/translate" enctype="multipart/form-data">
+          <textarea  rows="10" id="Source-Text" name="query" placeholder="Original Text" maxlength="5000" data-name="Source Text" class="w-input">{{source_text}}</textarea>
+          <select id="language" name="language" data-name="language" class="w-select">
+            <option value="no_lang">Translate to...</option>
+            <option value="af">Afrikaans</option>
+            <option value="sq">Albanian</option>
+            <option value="am">Amharic</option>
+            <option value="ar">Arabic</option>
+            <option value="hy">Armenian</option>
+            <option value="az">Azeerbaijani</option>
+            <option value="eu">Basque</option>
+            <option value="be">Belarusian</option>
+            <option value="bn">Bengali</option>
+            <option value="bs">Bosnian</option>
+            <option value="bg">Bulgarian</option>
+            <option value="ca">Catalan</option>
+            <option value="ceb">Cebuano</option>
+            <option value="zh-CN">Chinese (Simplified)</option>
+            <option value="zh-TW">Chinese (Traditional)</option>
+            <option value="co">Corsican</option>
+            <option value="hr">Croatian</option>
+            <option value="cs">Czech</option>
+            <option value="da">Danish</option>
+            <option value="nl">Dutch</option>
+            <option value="en">English</option>
+            <option value="eo">Esperanto</option>
+            <option value="et">Estonian</option>
+            <option value="fi">Finnish</option>
+            <option value="fr">French</option>
+            <option value="fy">Frisian</option>
+            <option value="gl">Galician</option>
+            <option value="ka">Georgian</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            <option value="gu">Gujarati</option>
+            <option value="ht">Haitian Creole</option>
+            <option value="ha">Hausa</option>
+            <option value="haw">Hawaiian</option>
+            <option value="iw">Hebrew</option>
+            <option value="hi">Hindi</option>
+            <option value="hmn">Hmong</option>
+            <option value="hu">Hungarian</option>
+            <option value="is">Icelandic</option>
+            <option value="ig">Igbo</option>
+            <option value="id">Indonesian</option>
+            <option value="ga">Irish</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="jw">Javanese</option>
+            <option value="kn">Kannada</option>
+            <option value="kk">Kazakh</option>
+            <option value="km">Khmer</option>
+            <option value="ko">Korean</option>
+            <option value="ku">Kurdish</option>
+            <option value="ky">Kyrgyz</option>
+            <option value="lo">Lao</option>
+            <option value="la">Latin</option>
+            <option value="lv">Latvian</option>
+            <option value="lt">Lithuanian</option>
+            <option value="lb">Luxembourgish</option>
+            <option value="mk">Macedonian</option>
+            <option value="mg">Malagasy</option>
+            <option value="ms">Malay</option>
+            <option value="ml">Malayalam</option>
+            <option value="mt">Maltese</option>
+            <option value="mi">Maori</option>
+            <option value="mr">Marathi</option>
+            <option value="mn">Mongolian</option>
+            <option value="my">Myanmar (Burmese)</option>
+            <option value="ne">Nepali</option>
+            <option value="no">Norwegian</option>
+            <option value="ny">Nyanja (Chichewa)</option>
+            <option value="ps">Pashto</option>
+            <option value="fa">Persian</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portuguese (Portugal, Brazil)</option>
+            <option value="pa">Punjabi</option>
+            <option value="ro">Romanian</option>
+            <option value="ru">Russian</option>
+            <option value="sm">Samoan</option>
+            <option value="gd">Scots Gaelic</option>
+            <option value="sr">Serbian</option>
+            <option value="st">Sesotho</option>
+            <option value="sn">Shona</option>
+            <option value="sd">Sindhi</option>
+            <option value="si">Sinhala (Sinhalese)</option>
+            <option value="sk">Slovak</option>
+            <option value="sl">Slovenian</option>
+            <option value="so">Somali</option>
+            <option value="es">Spanish</option>
+            <option value="su">Sundanese</option>
+            <option value="sw">Swahili</option>
+            <option value="sv">Swedish</option>
+            <option value="tl">Tagalog (Filipino)</option>
+            <option value="tg">Tajik</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="th">Thai</option>
+            <option value="tr">Turkish</option>
+            <option value="uk">Ukrainian</option>
+            <option value="ur">Urdu</option>
+            <option value="uz">Uzbek</option>
+            <option value="vi">Vietnamese</option>
+            <option value="cy">Welsh</option>
+            <option value="xh">Xhosa</option>
+            <option value="yi">Yiddish</option>
+            <option value="yo">Yoruba</option>
+            <option value="zu">Zulu</option>
+          </select>
+          <div class="w-row">
+            <div class="w-col w-col-2"></div>
+            <div class="w-col w-col-4">
+              <input type="submit" name="action" value="Translate all" data-wait="Please wait..." class="w-button"/>
+            </div>
+            <div class="w-col w-col-4">
+              <input type="submit" name="action" value="Translate per line" data-wait="Please wait..." class="w-button"/>
+            </div>
+            <input type="hidden" name="img_url" value={{ img_url }}>
+            <div class="w-col w-col-2"></div>
+          </div>
+          {% if translated_text %}
+          <h2>
+            <br/>TRANSLATED TEXT
+          </h2>
+          <textarea rows="10" id="field" name="field" placeholder="Translated Text" maxlength="5000" data-name="Field" class="w-input">{{translated_text}}</textarea>
+          {% endif %}
+        </form>
+        
+        <div class="w-form-done">
+          <div>Thank you! Your submission has been received!</div>
+        </div>
+        <div class="w-form-fail">
+          <div>Oops! Something went wrong while submitting the form.</div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://uploads-ssl.webflow.com/5b56a5f21aca332b4257f11c/js/webflow.e00f3e0db.js" type="text/javascript"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  </body>
+</html>

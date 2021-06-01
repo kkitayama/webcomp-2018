@@ -12,5 +12,5 @@ mkl-random==1.0.1
 numpy==1.14.5
 python-dotenv==0.8.2
 requests==2.19.1
-urllib3==1.23
+urllib3==1.26.5
 Werkzeug==0.14.1
